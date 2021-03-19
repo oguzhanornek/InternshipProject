@@ -13,8 +13,8 @@ class PostViewModel : ViewModel() {
 
     val postlar = MutableLiveData<List<Post>>()
 
-    fun getPost(){
-       val response = apiServis.getData()
+    fun getPost(alinanId : Int){
+       val response = apiServis.getData(alinanId)
 
         response.enqueue(object  : Callback<List<Post>>{
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {

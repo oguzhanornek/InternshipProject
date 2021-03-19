@@ -14,11 +14,9 @@ import com.oguzornek.internshipproject.viewmodel.PostViewModel
 import kotlinx.android.synthetic.main.fragment_post.*
 
 class PostFragment : Fragment() {
-    private val args : UserChooseFragmentArgs by navArgs()
+    private val args : PostFragmentArgs by navArgs()
     private lateinit var postViewModel : PostViewModel
     private val recylerPostAdapter = PostRecyclerAdapter(arrayListOf())
-
-    val alincakId = args.userId
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +36,7 @@ class PostFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         postViewModel = ViewModelProviders.of(this).get(PostViewModel::class.java)
-        postViewModel.getPost()
+        postViewModel.getPost(args.userId)
 
         post_recyclerView.layoutManager = LinearLayoutManager(context)
         post_recyclerView.adapter = recylerPostAdapter

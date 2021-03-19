@@ -35,9 +35,17 @@
     <fragment
         android:id="@+id/albumFragment"
         android:name="com.oguzornek.internshipproject.view.AlbumFragment"
-        android:label="AlbumFragment" />
+        android:label="AlbumFragment" >
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/postFragment"
         android:name="com.oguzornek.internshipproject.view.PostFragment"
-        android:label="PostFragment" />
+        android:label="PostFragment" >
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

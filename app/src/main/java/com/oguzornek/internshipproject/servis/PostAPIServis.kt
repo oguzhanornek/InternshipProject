@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class PostAPIServis {
 
-    val alinanID = UserChooseFragment().args.userId
+
     private val BASE_URL = "http://jsonplaceholder.typicode.com"
     private val api2 = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -17,7 +17,7 @@ class PostAPIServis {
             .build()
             .create(PostAPI::class.java)
 
-    fun getData() : Call<List<Post>> {
-        return api2.getPosts(alinanID)
+    fun getData(alinanId : Int) : Call<List<Post>> {
+        return api2.getPosts(alinanId)
     }
 }

@@ -8,4 +8,5 @@ interface UserAPI {
 
     @GET("/users")
     fun getKullanici():Call<List<Kullanicilar>>
+
 }

@@ -32,15 +32,15 @@ class UserChooseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.v("UserIdLog",args.userId.toString())
+
 
         view.postButton.setOnClickListener(){
-            val action2 = UserChooseFragmentDirections.actionUserChooseFragmentToPostFragment()
+            val action2 = UserChooseFragmentDirections.actionUserChooseFragmentToPostFragment(args.userId)
             Navigation.findNavController(it).navigate(action2)
         }
 
         view.albumsbutton.setOnClickListener(){
-            val action3 = UserChooseFragmentDirections.actionUserChooseFragmentToAlbumFragment()
+            val action3 = UserChooseFragmentDirections.actionUserChooseFragmentToAlbumFragment(args.userId)
             Navigation.findNavController(it).navigate(action3)
         }
 
