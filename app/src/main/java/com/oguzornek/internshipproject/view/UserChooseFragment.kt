@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_user_choose.view.*
 
 
 class UserChooseFragment : Fragment() {
-    private val args : UserChooseFragmentArgs by navArgs()
+    val args : UserChooseFragmentArgs by navArgs()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
