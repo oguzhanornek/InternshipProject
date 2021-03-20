@@ -40,7 +40,6 @@ android {
 
 dependencies {
     def retrofitVersion = '2.9.0'
-    def glideVersion = '4.12.0'
     def nav_version = "2.3.4"
     def lifeCycleExtensionVersion = '1.1.1'
 
@@ -58,7 +57,8 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"

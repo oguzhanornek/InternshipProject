@@ -3,14 +3,14 @@ package com.oguzornek.internshipproject.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.oguzornek.internshipproject.model.Kullanicilar
-import com.oguzornek.internshipproject.servis.UserAPIServis
+import com.oguzornek.internshipproject.servis.ApiServis
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
 class KullaniciListesiViewModel: ViewModel() {
-    private val userAPIServis = UserAPIServis()
+    private val userAPIServis = ApiServis()
 
     val kullancilar = MutableLiveData<List<Kullanicilar>>()
 

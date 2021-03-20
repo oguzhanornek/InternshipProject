@@ -3,13 +3,13 @@ package com.oguzornek.internshipproject.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.oguzornek.internshipproject.model.Post
-import com.oguzornek.internshipproject.servis.PostAPIServis
+import com.oguzornek.internshipproject.servis.ApiServis
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class PostViewModel : ViewModel() {
-    private val apiServis = PostAPIServis()
+    private val apiServis = ApiServis()
 
     val postlar = MutableLiveData<List<Post>>()
 

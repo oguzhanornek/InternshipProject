@@ -34,10 +34,10 @@
     </fragment>
     <fragment
         android:id="@+id/albumFragment"
-        android:name="com.oguzornek.internshipproject.view.AlbumFragment"
+        android:name="com.oguzornek.internshipproject.view.PhotosFragment"
         android:label="AlbumFragment" >
         <argument
-            android:name="userId"
+            android:name="photoId"
             app:argType="integer" />
     </fragment>
     <fragment
