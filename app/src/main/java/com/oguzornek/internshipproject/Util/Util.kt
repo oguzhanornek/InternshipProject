@@ -9,7 +9,10 @@ import com.oguzornek.internshipproject.R
 
 fun ImageView.gorselView(url : String?, placeholder : CircularProgressDrawable ){
     val options = RequestOptions().placeholder(placeholder).error(R.mipmap.ic_launcher_round)
-    Glide.with(context).setDefaultRequestOptions(options).load(url).into(this)
+    url?.let {
+        Glide.with(this.context).setDefaultRequestOptions(options).load(it).into(this)
+    }
+
 
 }
 
