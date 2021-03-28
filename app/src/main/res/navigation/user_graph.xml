@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_graph"
@@ -7,30 +8,11 @@
 
     <fragment
         android:id="@+id/kullanicilarFragment"
-        android:name="com.oguzornek.internshipproject.view.KullanicilarFragment"
+        android:name="com.oguzornek.internshipproject.view.UsersFragment"
         android:label="kullanicilarFragment">
         <action
-            android:id="@+id/action_kullanicilarFragment_to_userChooseFragment"
-            app:destination="@id/userChooseFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/userChooseFragment"
-        android:name="com.oguzornek.internshipproject.view.UserChooseFragment"
-        android:label="userChooseFragment">
-        <action
-            android:id="@+id/action_userChooseFragment_to_kullanicilarFragment"
-            app:destination="@id/kullanicilarFragment" />
-        <action
-            android:id="@+id/action_userChooseFragment_to_albumFragment"
-            app:destination="@id/albumFragment" />
-        <action
-            android:id="@+id/action_userChooseFragment_to_postFragment"
-            app:destination="@id/postFragment" />
-        <argument
-            android:name="userId"
-            app:argType="integer"
-            />
-
+            android:id="@+id/action_kullanicilarFragment_to_bottomSheetFragment"
+            app:destination="@id/bottomSheetFragment" />
     </fragment>
     <fragment
         android:id="@+id/albumFragment"
@@ -48,4 +30,21 @@
             android:name="userId"
             app:argType="integer" />
     </fragment>
+    <dialog
+        android:id="@+id/bottomSheetFragment"
+        android:name="com.oguzornek.internshipproject.view.BottomSheetFragment"
+        android:label="BottomSheetFragment" >
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_bottomSheetFragment_to_albumFragment"
+            app:destination="@id/albumFragment" />
+        <action
+            android:id="@+id/action_bottomSheetFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_bottomSheetFragment_to_kullanicilarFragment"
+            app:destination="@id/kullanicilarFragment" />
+    </dialog>
 </navigation>

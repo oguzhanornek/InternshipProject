@@ -7,23 +7,23 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.oguzornek.internshipproject.R
 import com.oguzornek.internshipproject.model.Kullanicilar
-import com.oguzornek.internshipproject.view.KullanicilarFragmentDirections
-import kotlinx.android.synthetic.main.kullanici_recyler_row.view.*
+import com.oguzornek.internshipproject.view.UsersFragmentDirections
+import kotlinx.android.synthetic.main.user_recycler_row.view.*
 
 
-class KullaniciListesiRecyclerAdapter(var kullaniciListesi: List<Kullanicilar>) : RecyclerView.Adapter<KullaniciListesiRecyclerAdapter.KullaniciViewHolder>() {
+class UserListRecyclerAdapter(var kullaniciListesi: List<Kullanicilar>) : RecyclerView.Adapter<UserListRecyclerAdapter.KullaniciViewHolder>() {
 
     class KullaniciViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
 
         fun bind(item: Kullanicilar) {
-            itemView.kullaniciAdiText.text = item.kullaniciAdi
-            itemView.isimText.text = item.isim
+            itemView.userNameText.text = item.kullaniciAdi
+            itemView.nameText.text = item.isim
             itemView.mailText.text = item.kullaniciMail
 
             itemView.setOnClickListener {
                 val userId: Int?
                 userId = item.userId
-                val action = KullanicilarFragmentDirections.actionKullanicilarFragmentToUserChooseFragment(userId!!)
+                val action = UsersFragmentDirections.actionKullanicilarFragmentToBottomSheetFragment(userId!!)
                 Navigation.findNavController(it).navigate(action)
             }
         }
@@ -32,7 +32,7 @@ class KullaniciListesiRecyclerAdapter(var kullaniciListesi: List<Kullanicilar>) 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KullaniciViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.kullanici_recyler_row, parent, false)
+        val view = inflater.inflate(R.layout.user_recycler_row, parent, false)
         return KullaniciViewHolder(view)
     }
 

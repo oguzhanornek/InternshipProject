@@ -9,15 +9,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oguzornek.internshipproject.R
-import com.oguzornek.internshipproject.adapter.KullaniciListesiRecyclerAdapter
-import com.oguzornek.internshipproject.viewmodel.KullaniciListesiViewModel
-import kotlinx.android.synthetic.main.fragment_kullanicilar.*
+import com.oguzornek.internshipproject.adapter.UserListRecyclerAdapter
+import com.oguzornek.internshipproject.viewmodel.UserListViewModel
+import kotlinx.android.synthetic.main.fragment_users.*
 
 
-class KullanicilarFragment : Fragment() {
+class UsersFragment : Fragment() {
 
-    private lateinit var kullanicilarviewModel : KullaniciListesiViewModel
-    private val recyclerKullaniciadapter = KullaniciListesiRecyclerAdapter(arrayListOf())
+    private lateinit var kullanicilarviewModel : UserListViewModel
+    private val recyclerKullaniciadapter = UserListRecyclerAdapter(arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,17 +29,17 @@ class KullanicilarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_kullanicilar, container, false)
+        return inflater.inflate(R.layout.fragment_users, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        kullanicilarviewModel = ViewModelProviders.of(this).get(KullaniciListesiViewModel::class.java)
+        kullanicilarviewModel = ViewModelProviders.of(this).get(UserListViewModel::class.java)
         kullanicilarviewModel.verileriCek()
 
-        kullaniciListesi_RecyclerView.layoutManager = LinearLayoutManager(context)
-        kullaniciListesi_RecyclerView.adapter = recyclerKullaniciadapter
+        userList_RecyclerView.layoutManager = LinearLayoutManager(context)
+        userList_RecyclerView.adapter = recyclerKullaniciadapter
         observeLiveData()
 
 

@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#7868e6"
-        tools:context=".view.KullanicilarFragment">
+        tools:context=".view.UsersFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/kullaniciListesi_RecyclerView"
+            android:id="@+id/userList_RecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

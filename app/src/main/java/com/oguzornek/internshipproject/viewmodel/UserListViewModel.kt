@@ -9,7 +9,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class KullaniciListesiViewModel: ViewModel() {
+class UserListViewModel: ViewModel() {
     private val userAPIServis = ApiServis()
 
     val kullancilar = MutableLiveData<List<Kullanicilar>>()
