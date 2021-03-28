@@ -6,19 +6,19 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.oguzornek.internshipproject.R
-import com.oguzornek.internshipproject.model.Kullanicilar
+import com.oguzornek.internshipproject.model.Users
 import com.oguzornek.internshipproject.view.UsersFragmentDirections
 import kotlinx.android.synthetic.main.user_recycler_row.view.*
 
 
-class UserListRecyclerAdapter(var kullaniciListesi: List<Kullanicilar>) : RecyclerView.Adapter<UserListRecyclerAdapter.KullaniciViewHolder>() {
+class UserListRecyclerAdapter(var kullaniciListesi: List<Users>) : RecyclerView.Adapter<UserListRecyclerAdapter.KullaniciViewHolder>() {
 
     class KullaniciViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
 
-        fun bind(item: Kullanicilar) {
-            itemView.userNameText.text = item.kullaniciAdi
-            itemView.nameText.text = item.isim
-            itemView.mailText.text = item.kullaniciMail
+        fun bind(item: Users) {
+            itemView.userNameText.text = item.userName
+            itemView.nameText.text = item.name
+            itemView.mailText.text = item.userMail
 
             itemView.setOnClickListener {
                 val userId: Int?

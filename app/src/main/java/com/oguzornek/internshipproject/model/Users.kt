@@ -2,15 +2,15 @@ package com.oguzornek.internshipproject.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Kullanicilar(
+data class Users(
     @SerializedName("id")
     val userId : Int? ,
     @SerializedName("username")
-    val kullaniciAdi : String?,
+    val userName : String?,
     @SerializedName("name")
-    val isim:String?,
+    val name:String?,
     @SerializedName("email")
-    val kullaniciMail : String?
+    val userMail : String?
 
 
 

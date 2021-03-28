@@ -1,6 +1,6 @@
 package com.oguzornek.internshipproject.servis
 
-import com.oguzornek.internshipproject.model.Kullanicilar
+import com.oguzornek.internshipproject.model.Users
 import com.oguzornek.internshipproject.model.Photos
 import com.oguzornek.internshipproject.model.Post
 import retrofit2.Call
@@ -16,7 +16,7 @@ class ApiServis {
         .build()
         .create(Api::class.java)
 
-    fun getData() : Call<List<Kullanicilar>> {
+    fun getData() : Call<List<Users>> {
         return api.getKullanici()
     }
     fun getData(alinanId : Int) : Call<List<Post>> {
