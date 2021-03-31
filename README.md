@@ -1,7 +1,7 @@
 # InternshipProject
 
 
-<p><span style="font-size: medium; font-family: 'courier new', courier;">In the application, we list the data we receive from the api and when this data is clicked, we provide them to the relevant pages.</span></p>
+<p><span style="font-size: medium; font-family: 'courier new', courier;">In the application, we list the data, we receive from the api and when this data is clicked, we provide them to the relevant pages.</span></p>
 <p>&nbsp;</p>
 <h2><strong>Application Architecture</strong></h2>
 <p><strong>- MVVM</strong></p>
