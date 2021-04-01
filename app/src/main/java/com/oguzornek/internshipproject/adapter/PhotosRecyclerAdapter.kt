@@ -1,22 +1,22 @@
 package com.oguzornek.internshipproject.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.oguzornek.internshipproject.R
 import com.oguzornek.internshipproject.Util.gorselView
 import com.oguzornek.internshipproject.Util.makePlaceHolder
+import com.oguzornek.internshipproject.databinding.UserPhotosRecyclerRowBinding
 import com.oguzornek.internshipproject.model.Photos
-import kotlinx.android.synthetic.main.user_album_recycler_row.view.*
 
 
 class PhotosRecyclerAdapter( var photoList : List<Photos>) : RecyclerView.Adapter<PhotosRecyclerAdapter.PhotosVH>() {
-    class PhotosVH(itemview : View) : RecyclerView.ViewHolder(itemview){
+    class PhotosVH(val view : UserPhotosRecyclerRowBinding) : RecyclerView.ViewHolder(view.root){
 
         fun bind(item : Photos){
-            itemView.imageView.gorselView(item.url, makePlaceHolder(itemView.context))
-            itemView.titlePhotoText.text = item.title
+            view.imageView.gorselView(item.url, makePlaceHolder(itemView.context))
+            view.titlePhotoText.text = item.title
 
         }
 
@@ -25,8 +25,8 @@ class PhotosRecyclerAdapter( var photoList : List<Photos>) : RecyclerView.Adapte
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotosVH {
 
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.user_album_recycler_row,parent,false)
-        return PhotosVH(view)
+        val binding = DataBindingUtil.inflate<UserPhotosRecyclerRowBinding>(inflater,R.layout.user_photos_recycler_row,parent,false)
+        return PhotosVH(binding)
     }
 
     override fun onBindViewHolder(holder: PhotosVH, position: Int) {

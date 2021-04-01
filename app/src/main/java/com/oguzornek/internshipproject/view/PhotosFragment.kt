@@ -5,15 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oguzornek.internshipproject.R
 import com.oguzornek.internshipproject.adapter.PhotosRecyclerAdapter
+import com.oguzornek.internshipproject.databinding.FragmentPhotosBinding
 import com.oguzornek.internshipproject.viewmodel.PhotosViewModel
-import kotlinx.android.synthetic.main.fragment_album.*
+
 
 class PhotosFragment : Fragment() {
+
+    private lateinit var binding: FragmentPhotosBinding
     val args : PhotosFragmentArgs by navArgs()
     private lateinit var photosViewModel: PhotosViewModel
     private val recylerAdapter = PhotosRecyclerAdapter(arrayListOf())
@@ -30,7 +34,8 @@ class PhotosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_album, container, false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_photos,container,false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,8 +43,8 @@ class PhotosFragment : Fragment() {
         photosViewModel = ViewModelProviders.of(this).get(PhotosViewModel::class.java)
         photosViewModel.getPhotos(args.photoId)
 
-        album_recyclerView.layoutManager = LinearLayoutManager(context)
-        album_recyclerView.adapter = recylerAdapter
+        binding.albumRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.albumRecyclerView.adapter = recylerAdapter
 
         observeLiveData()
     }

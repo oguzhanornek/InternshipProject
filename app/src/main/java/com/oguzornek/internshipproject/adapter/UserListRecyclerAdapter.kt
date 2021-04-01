@@ -3,22 +3,25 @@ package com.oguzornek.internshipproject.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.oguzornek.internshipproject.R
+import com.oguzornek.internshipproject.databinding.UserRecyclerRowBinding
 import com.oguzornek.internshipproject.model.Users
 import com.oguzornek.internshipproject.view.UsersFragmentDirections
-import kotlinx.android.synthetic.main.user_recycler_row.view.*
 
 
-class UserListRecyclerAdapter(var kullaniciListesi: List<Users>) : RecyclerView.Adapter<UserListRecyclerAdapter.KullaniciViewHolder>() {
 
-    class KullaniciViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
+class UserListRecyclerAdapter(var kullaniciListesi: List<Users>) : RecyclerView.Adapter<UserListRecyclerAdapter.UserViewHolder>() {
+
+    class UserViewHolder(val view: UserRecyclerRowBinding) : RecyclerView.ViewHolder(view.root) {
+
 
         fun bind(item: Users) {
-            itemView.userNameText.text = item.userName
-            itemView.nameText.text = item.name
-            itemView.mailText.text = item.userMail
+            view.userNameText.text = item.userName
+            view.nameText.text = item.name
+            view.mailText.text = item.userMail
 
             itemView.setOnClickListener {
                 val userId: Int?
@@ -30,17 +33,17 @@ class UserListRecyclerAdapter(var kullaniciListesi: List<Users>) : RecyclerView.
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KullaniciViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.user_recycler_row, parent, false)
-        return KullaniciViewHolder(view)
+        val binding = DataBindingUtil.inflate<UserRecyclerRowBinding>(inflater,R.layout.user_recycler_row,parent,false)
+        return UserViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return kullaniciListesi.size
     }
 
-    override fun onBindViewHolder(holder: KullaniciViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.bind(kullaniciListesi.get(position))
     }
 }
