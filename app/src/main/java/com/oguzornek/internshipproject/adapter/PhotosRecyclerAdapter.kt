@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.oguzornek.internshipproject.R
-import com.oguzornek.internshipproject.Util.gorselView
-import com.oguzornek.internshipproject.Util.makePlaceHolder
+import com.oguzornek.internshipproject.util.gorselView
+import com.oguzornek.internshipproject.util.makePlaceHolder
 import com.oguzornek.internshipproject.databinding.UserPhotosRecyclerRowBinding
 import com.oguzornek.internshipproject.model.Photos
 

@@ -48,7 +48,7 @@ class PostFragment : Fragment() {
     }
 
     fun observeLiveData(){
-        postViewModel.postlar.observe(viewLifecycleOwner){
+        postViewModel.posts.observe(viewLifecycleOwner){
             it?.let {
                 recylerPostAdapter.postList = it
                 recylerPostAdapter.notifyDataSetChanged()

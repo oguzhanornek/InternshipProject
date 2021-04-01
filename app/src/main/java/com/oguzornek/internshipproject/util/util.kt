@@ -1,4 +1,4 @@
-package com.oguzornek.internshipproject.Util
+package com.oguzornek.internshipproject.util
 
 import android.content.Context
 import android.widget.ImageView

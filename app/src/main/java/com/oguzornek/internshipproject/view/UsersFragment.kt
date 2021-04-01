@@ -18,8 +18,8 @@ import com.oguzornek.internshipproject.viewmodel.UserListViewModel
 class UsersFragment : Fragment() {
     private lateinit var binding : FragmentUsersBinding
 
-    private lateinit var kullanicilarviewModel : UserListViewModel
-    private val recyclerKullaniciadapter = UserListRecyclerAdapter(arrayListOf())
+    private lateinit var usersviewModel : UserListViewModel
+    private val recyclerUserAdapter = UserListRecyclerAdapter(arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,21 +38,21 @@ class UsersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        kullanicilarviewModel = ViewModelProviders.of(this).get(UserListViewModel::class.java)
-        kullanicilarviewModel.verileriCek()
+        usersviewModel = ViewModelProviders.of(this).get(UserListViewModel::class.java)
+        usersviewModel.getUserData()
 
         binding.userListRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.userListRecyclerView.adapter = recyclerKullaniciadapter
+        binding.userListRecyclerView.adapter = recyclerUserAdapter
         observeLiveData()
 
 
     }
 
     fun observeLiveData(){
-        kullanicilarviewModel.kullancilar.observe(viewLifecycleOwner, Observer {
+        usersviewModel.users.observe(viewLifecycleOwner, Observer {
             it?.let {
-                recyclerKullaniciadapter.kullaniciListesi = it
-                recyclerKullaniciadapter.notifyDataSetChanged()
+                recyclerUserAdapter.userList = it
+                recyclerUserAdapter.notifyDataSetChanged()
 
 
             }

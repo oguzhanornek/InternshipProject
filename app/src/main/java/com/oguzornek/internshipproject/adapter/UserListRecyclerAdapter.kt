@@ -13,7 +13,7 @@ import com.oguzornek.internshipproject.view.UsersFragmentDirections
 
 
 
-class UserListRecyclerAdapter(var kullaniciListesi: List<Users>) : RecyclerView.Adapter<UserListRecyclerAdapter.UserViewHolder>() {
+class UserListRecyclerAdapter(var userList: List<Users>) : RecyclerView.Adapter<UserListRecyclerAdapter.UserViewHolder>() {
 
     class UserViewHolder(val view: UserRecyclerRowBinding) : RecyclerView.ViewHolder(view.root) {
 
@@ -40,10 +40,10 @@ class UserListRecyclerAdapter(var kullaniciListesi: List<Users>) : RecyclerView.
     }
 
     override fun getItemCount(): Int {
-        return kullaniciListesi.size
+        return userList.size
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        holder.bind(kullaniciListesi.get(position))
+        holder.bind(userList.get(position))
     }
 }

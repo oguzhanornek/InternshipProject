@@ -11,16 +11,16 @@ import retrofit2.Response
 class PostViewModel : ViewModel() {
     private val apiServis = ApiServis()
 
-    val postlar = MutableLiveData<List<Post>>()
+    val posts = MutableLiveData<List<Post>>()
 
-    fun getPost(alinanId : Int){
-       val response = apiServis.getData(alinanId)
+    fun getPost(gettingId : Int){
+       val response = apiServis.getData(gettingId)
 
         response.enqueue(object  : Callback<List<Post>>{
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
 
                 if (response.isSuccessful){
-                    postlar.value = response.body()
+                    posts.value = response.body()
                 }
             }
 
