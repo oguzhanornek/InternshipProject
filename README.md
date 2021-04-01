@@ -10,3 +10,4 @@
 <p><strong>- Glide</strong></p>
 <p><strong>- Retrofit</strong></p>
 <p><strong>- Navigation</strong></p>
+<p><strong>- Data Binding</strong></p>
